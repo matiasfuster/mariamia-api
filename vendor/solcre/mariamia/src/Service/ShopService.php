@@ -11,7 +11,8 @@ class ShopService extends BaseService {
 
     public function add($data, $strategies = null) {
         
-        $data['password'] = Strings::bcryptPassword($data['password']);
+        $password = $data['password'];
+        $data['password'] = Strings::bcryptPassword($password);
 
         $shop = $this->repository->shopExists($data);
         if($shop > 0)
