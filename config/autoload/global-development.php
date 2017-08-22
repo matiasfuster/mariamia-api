@@ -51,4 +51,7 @@ return array(
             ],
         ],
     ],
+    "mariamia" => [
+        "image_path" => __DIR__ . "/../../public_html/api/uploads/images/"
+    ]
 );

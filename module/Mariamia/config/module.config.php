@@ -267,6 +267,37 @@ return array(
                 'filters' => array(),
                 'name' => 'name',
             ),
+            1 => array(
+                'required' => true,
+                'validators' => array(),
+                'filters' => array(),
+                'name' => 'type',
+            ),
+            2 => array(
+                'required' => true,
+                'validators' => array(),
+                'filters' => array(),
+                'name' => 'thc',
+            ),
+            3 => array(
+                'required' => true,
+                'validators' => array(),
+                'filters' => array(),
+                'name' => 'cbd',
+            ),
+            4 => array(
+                'required' => true,
+                'validators' => array(),
+                'filters' => array(),
+                'name' => 'description',
+            ),
+            5 => array(
+                'required' => true,
+                'validators' => array(),
+                'filters' => array(),
+                'name' => 'image',
+                'type' => 'Zend\\InputFilter\\FileInput',
+            ),
         ),
     ),
     'zf-mvc-auth' => array(

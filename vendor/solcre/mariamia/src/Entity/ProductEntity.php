@@ -27,6 +27,9 @@ class ProductEntity {
     /** @ORM\Column(type="string") * */
     protected $description;
 
+    /** @ORM\Column(type="string") * */
+    protected $image;
+    
     public function getId() {
         return $this->id;
     }
@@ -51,6 +54,10 @@ class ProductEntity {
         return $this->description;
     }
 
+    public function getImage() {
+        return $this->image;
+    }
+    
     public function setId($id) {
         $this->id = $id;
     }
@@ -74,6 +81,9 @@ class ProductEntity {
     public function setDescription($description) {
         $this->description = $description;
     }
-
+    
+    public function setImage($image) {
+        $this->image = $image;
+    }
 
 }

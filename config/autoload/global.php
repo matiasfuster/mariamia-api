@@ -17,21 +17,20 @@ return array(
             ),
         ),
     ),
-    
-'zf-oauth2'    => array(
-    'storage'          => 'ZF\OAuth2\Adapter\PdoAdapter',
-    'db'               => array(
-        'dsn'      => 'mysql:dbname=mariamia_db;host=localhost',
-        'route'    => '/oauth',
-        'username' => 'mariamia_user',
-        'password' => '^6xRkrIx@vAi',
+    'zf-oauth2' => array(
+        'storage' => 'ZF\OAuth2\Adapter\PdoAdapter',
+        'db' => array(
+            'dsn' => 'mysql:dbname=mariamia_db;host=localhost',
+            'route' => '/oauth',
+            'username' => 'mariamia_user',
+            'password' => '^6xRkrIx@vAi',
+        ),
+        'storage_settings' => array(
+            'user_table' => 'shops',
+        ),
+        'allow_implicit' => true,
+        'access_lifetime' => 14400
     ),
-    'storage_settings' => array(
-        'user_table' => 'shops',
-    ),
-    'allow_implicit'   => true,
-    'access_lifetime'  => 14400
-),
     'doctrine' => [
         'connection' => [
             // default connection name
@@ -51,4 +50,7 @@ return array(
             ],
         ],
     ],
+    "mariamia" => [
+      "image_path" => __DIR__ . "/../../public_html/api/uploads/images/"
+    ]
 );
