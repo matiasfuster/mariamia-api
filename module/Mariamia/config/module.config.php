@@ -204,6 +204,9 @@ return array(
         'Mariamia\\V1\\Rest\\Products\\Controller' => array(
             'input_filter' => 'Mariamia\\V1\\Rest\\Products\\Validator',
         ),
+        'Mariamia\\V1\\Rest\\Sections\\Controller' => array(
+            'input_filter' => 'Mariamia\\V1\\Rest\\Sections\\Validator',
+        ),
     ),
     'input_filter_specs' => array(
         'Mariamia\\V1\\Rest\\Shops\\Validator' => array(
@@ -297,6 +300,32 @@ return array(
                 'filters' => array(),
                 'name' => 'image',
                 'type' => 'Zend\\InputFilter\\FileInput',
+            ),
+        ),
+        'Mariamia\\V1\\Rest\\Sections\\Validator' => array(
+            0 => array(
+                'required' => true,
+                'validators' => array(),
+                'filters' => array(),
+                'name' => 'title',
+            ),
+            1 => array(
+                'required' => true,
+                'validators' => array(),
+                'filters' => array(),
+                'name' => 'content',
+            ),
+            2 => array(
+                'required' => false,
+                'validators' => array(),
+                'filters' => array(),
+                'name' => 'usefulYes',
+            ),
+            3 => array(
+                'required' => false,
+                'validators' => array(),
+                'filters' => array(),
+                'name' => 'usefulNo',
             ),
         ),
     ),
