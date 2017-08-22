@@ -6,8 +6,8 @@ nbproject
 .idea
 .project
 .settings
-vendor/
-!vendor/solcre
+/vendor/*
+!vendor/solcre/
 public/vendor/
 config/development.config.php
 config/autoload/local.php
