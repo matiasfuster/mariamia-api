@@ -37,7 +37,6 @@ class ShopService extends BaseService {
             $shop->setLongitude($data['longitude']);
             $shop->setStock($data['stock']);
             $shop->setEmail($data['email']);
-            die("Test for Travis CI");
             $password = Strings::bcryptPassword($data['password']);
             $shop->setPassword($password);
             
