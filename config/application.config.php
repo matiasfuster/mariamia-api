@@ -13,8 +13,8 @@ return array(
     // Module class.
     'module_listener_options' => array(
         'module_paths' => array(
-__DIR__ .'/../module',
-           __DIR__ . '/../vendor'
+            './module',
+            './vendor'
         ),
         // Using __DIR__ to ensure cross-platform compatibility. Some platforms --
         // e.g., IBM i -- have problems with globs that are not qualified.
