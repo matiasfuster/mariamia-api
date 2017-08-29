@@ -13,7 +13,7 @@ class ShopService extends BaseService {
         
         $password = $data['password'];
         $data['password'] = Strings::bcryptPassword($password);
-
+        echo("test");
         $shop = $this->repository->shopExists($data);
         if($shop > 0)
         {
