@@ -1,0 +1,473 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Mariamia",
+		"_postman_id": "f5a22c60-6598-f976-e304-492eebf06987",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Products",
+			"description": "",
+			"item": [
+				{
+					"name": "Get Products",
+					"request": {
+						"url": "{{url_api}}/products",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create Product",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 201\"] = responseCode.code === 201;",
+									"var product = JSON.parse(responseBody);",
+									"tests[\"Product name\"] = product.name == \"Planta C\";",
+									"postman.setEnvironmentVariable(\"product\", product.id);",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url_api}}/products",
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Planta C",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "Tipo B",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "thc",
+									"value": "300",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "cbd",
+									"value": "200",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Texto",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"description": "",
+									"type": "file",
+									"src": "image.jpg"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Put Product",
+					"request": {
+						"url": "{{url_api}}/products/{{product}}",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Planta D\",\n    \"type\": \"Tipo A\",\n    \"thc\": \"500\",\n    \"cbd\": \"500\",\n    \"description\": \"Texto\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Product",
+					"request": {
+						"url": "{{url_api}}/products/{{product}}",
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Sections",
+			"description": "",
+			"item": [
+				{
+					"name": "Get Sections",
+					"request": {
+						"url": "{{url_api}}/sections",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create Section",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 201\"] = responseCode.code === 201;",
+									"var section = JSON.parse(responseBody);",
+									"tests[\"Section title\"] = section.title == \"Texto 2\";",
+									"postman.setEnvironmentVariable(\"section\", section.id);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url_api}}/sections",
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Texto 2",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "content",
+									"value": "Texto 1",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Put Section",
+					"request": {
+						"url": "{{url_api}}/sections/{{section}}",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\": \"Texto 5\",\n\t\"content\": \"Texto 5\",\n\t\"usefulYes\": 0,\n\t\"usefulNo\": 0\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Patch Section",
+					"request": {
+						"url": "{{url_api}}/sections/{{section}}",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"usefulNo\": true\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Section",
+					"request": {
+						"url": "{{url_api}}/sections/{{section}}",
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Shops",
+			"description": "",
+			"item": [
+				{
+					"name": "Create Shop",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 201\"] = responseCode.code === 201;",
+									"var shop = JSON.parse(responseBody);",
+									"tests[\"Shop name\"] = shop.name == \"Farmashop 100\";",
+									"postman.setEnvironmentVariable(\"shop_1\", shop.id);",
+									"tests[\"email\"] = shop.email == \"farmashop-100@gmail.com\";",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url_api}}/shops",
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Farmashop 100",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "Avenida Enrique Legrand 4856",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "latitude",
+									"value": "-78.121212",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "longitude",
+									"value": "-198.12112211",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "stock",
+									"value": "1",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "farmashop-100@gmail.com",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "farmashop",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get Shops",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url_api}}/shops",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Patch Shop",
+					"request": {
+						"url": "{{url_api}}/shops/{{shop_1}}",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"stock\": 0\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Put Shop",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var shop = JSON.parse(responseBody);",
+									"tests[\"ValidateName\"] = shop.name == \"Farmashop 100\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url_api}}/shops/{{shop_1}}",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Farmashop 100\",\n    \"address\": \"Avenida Enrique Legrand 4856\",\n    \"latitude\": \"-98.233434\",\n    \"longitude\": \"-190.23553\",\n    \"stock\": \"1\",\n    \"email\": \"farmashop-98@gmail.com\",\n    \"password\": \"famrasho-98\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var oauth = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"access_token\", oauth.access_token);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url_api}}/oauth",
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "farmashop-100",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "farmashop-100",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "grant_type",
+									"value": "password",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "client_id",
+									"value": "web",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Shop",
+					"request": {
+						"url": "{{url_api}}/shops/{{shop_1}}",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
