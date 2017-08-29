@@ -2,6 +2,14 @@ language: php
 
 php:
   - "5.6"
+  
+install:
+  - npm install newman
+
+before_script:
+  - node --version
+  - npm --version
+  - node_modules/.bin/newman --version
 
 script:
-  - /home/agustin/.npm/newman run tests/Mariamia.postman_collection-endpoints.json -e tests/Mariamia.postman_collection.json
+  - node_modules/.bin/newman run tests/Mariamia.postman_collection-endpoints.json -e tests/Mariamia.postman_collection.json
