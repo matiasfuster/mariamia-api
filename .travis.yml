@@ -16,6 +16,8 @@ before_script:
   - mysql -e 'create database test_database'
   - mysql -e 'use test_database'
   - mysql -u root test_database < tests/mariamia_db.sql 
+  - composer self-update
+  - composer install --prefer-source --no-interaction --dev
   
 
 script:
