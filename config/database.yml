@@ -1,5 +1,5 @@
 test:
     adapter: mysql2
-    database: test_databse
+    database: test_database
     username: travis
     encoding: utf8
