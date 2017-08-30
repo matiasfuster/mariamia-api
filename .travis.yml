@@ -19,5 +19,9 @@ before_script:
   
 
 script:
+  - phpunit --coverage-text --coverage-clover=coverage.clover
   - node_modules/.bin/newman run tests/Mariamia.postman_collection-endpoints.json -e tests/Mariamia.postman_collection.json
- 
+
+after_script:
+  - wget https://scrutinizer-ci.com/ocular.phar
+  - php ocular.phar code-coverage:upload --format=php-clover coverage.clover
