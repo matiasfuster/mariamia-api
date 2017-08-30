@@ -14,7 +14,7 @@ before_script:
   - npm --version
   - node_modules/.bin/newman --version
   - mysql -e 'create database test_database'
-  - mysql -e "use test_database;"
+  - mysql -e "use test_database"
   - mysql < tests/mariamia_db.sql
 
 script:
