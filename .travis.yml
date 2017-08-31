@@ -23,6 +23,7 @@ env:
     - VHOST_URL=miramia.dev 
     
 install:
+  - travis_retry composer install --no-interaction
   - npm install newman
   - sudo apt-get install apache2 libapache2-mod-fastcgi > /dev/null
 
