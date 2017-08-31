@@ -15,7 +15,7 @@ php:
   - "5.6"
   
 install:
-  - sudo sh ./travisCI/apache-setup.sh -h="127.0.0.1" -u="http://mariamia.dev" -f="../public"
+  - sudo sh ./travisCI/apache-setup.sh -h="127.0.0.1" -u="http://mariamia.dev" -d="../public"
   - npm install newman
 
 before_script:
