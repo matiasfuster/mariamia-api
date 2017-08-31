@@ -60,7 +60,7 @@ before_script:
   - mysql -e 'use test_database'
   - mysql -u root test_database < tests/mariamia_db.sql
   # Test url
-  - curl -vsf 'http://mariamia.dev/index.php' &> /dev/stdout
+  #- curl -vsf 'http://mariamia.dev/index.php' &> /dev/stdout
   
 
 script:
