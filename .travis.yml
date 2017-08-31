@@ -43,16 +43,16 @@ before_script:
   - sudo a2ensite $VHOST_CONF
   - sudo service apache2 restart
   # Do a lookup on local.dev hostname set above 
-  - nslookup local.dev
+  - nslookup mariamia.dev
   # Do an Apache Config Test
   - sudo apache2ctl configtest
   # Check Apache Version
   - sudo apache2 -v
-  # Check PHP Version
-  - sudo php -v
+  # Check Versions
   - node --version
   - npm --version
   - node_modules/.bin/newman --version
+  # Mysql Setup
   - mysql -e 'create database test_database'
   - mysql -e 'use test_database'
   - mysql -u root test_database < tests/mariamia_db.sql 
