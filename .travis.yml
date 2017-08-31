@@ -55,7 +55,9 @@ before_script:
   # Mysql Setup
   - mysql -e 'create database test_database'
   - mysql -e 'use test_database'
-  - mysql -u root test_database < tests/mariamia_db.sql 
+  - mysql -u root test_database < tests/mariamia_db.sql
+  # Test url
+  - curl -vsf 'http://mariamia.dev' &> /dev/stdout
   
 
 script:
