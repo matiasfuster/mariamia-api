@@ -20,7 +20,7 @@ env:
     - SOURCE_DIR=src
     - VHOST_FILE=.mariamia.vhost
     - VHOST_CONF=mariamia.conf
-    - VHOST_URL=miramia.dev 
+    - VHOST_URL=mariamia.dev
     
 install:
   - travis_retry composer install --no-interaction
